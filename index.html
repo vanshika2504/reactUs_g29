@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/images/logo2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css" integrity="sha512-dUOcWaHA4sUKJgO7lxAQ0ugZiWjiDraYNeNJeRKGOIpEq4vroj1DpKcS3jP0K4Js4v6bXk31AAxAxaYt3Oi9xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+
+    <title>City Dashboard</title>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+       
+       const lostpassword = document.getElementById("lostpassword");
+        const signup = document.getElementById("signup");
+        const signin = document.getElementById("signin");
+        const back = document.getElementById("back");
+        const field = document.getElementById("field");
+        const field1 = document.getElementById("field1");
+        const title = document.getElementById("title");
+
+        const names = document.getElementById("name");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+
+        // let namearray = ["Yash Goyal"];
+        // let emailarray = ["yashgoyal2804@gmail.com"];
+        // let passwordarray = ["YashGoyal@28"];
+        // console.log(namearray);
+        signin.onClick = function(){
+            field.style.maxHeight="0";
+            field1.style.maxHeight="60px";
+            back.style.display="none"
+            title.innerHTML="Sign In";
+            signup.classList.add("disabled")
+            signin.classList.remove("disabled")
+            window.location.href = "index.html";
+            
+            
+            // function checkAge(age) {
+            //     return email.value == age;
+            // }
+
+            
+            // console.log(emailarray.find(checkAge));
+        }
+        signup.onClick = function(){
+            field.style.maxHeight="60px";
+            field1.style.maxHeight="60px";
+            title.innerHTML="Sign Up";
+            back.style.display="none"
+            signup.classList.remove("disabled")
+            signin.classList.add("disabled")
+            // namearray.push(names.value);
+            // emailarray.push(email.value);
+            // passwordarray.push(password.value);
+            // console.log(namearray);
+            sessionStorage.setItem("name",names.value);
+            sessionStorage.setItem("email",email.value);
+            sessionStorage.setItem("pass",password.value);
+        }
+        lostpassword.onClick=function(){
+            field.style.maxHeight="0";
+            field1.style.maxHeight="0";
+            signup.style.display="none"
+            signin.style.display="none"
+            back.style.display="block"
+            title.innerHTML="Forgot Password";
+        }
+        back.onClick=function(){
+            field.style.maxHeight="0";
+            field1.style.maxHeight="60px";
+            back.style.display="none"
+            title.innerHTML="Sign In";
+            signup.classList.add("disabled")
+            signin.classList.remove("disabled")
+            signup.style.display="block"
+            signin.style.display="block"
+        }
+    
+    </script>
+    
+  </body>
+  
+</html>
